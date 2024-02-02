@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/btc-exchange-rate/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/btc-exchange-rate/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/btc-exchange-rate",
+  "projects": {
+    "btc-exchange-rate": {
+      "type": "application",
+      "root": "apps/btc-exchange-rate",
+      "entryFile": "main",
+      "sourceRoot": "apps/btc-exchange-rate/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/btc-exchange-rate/tsconfig.app.json"
+      }
+    },
+    "metrics": {
+      "type": "application",
+      "root": "apps/metrics",
+      "entryFile": "main",
+      "sourceRoot": "apps/metrics/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/metrics/tsconfig.app.json"
+      }
+    },
+    "exchange-rate": {
+      "type": "application",
+      "root": "apps/exchange-rate",
+      "entryFile": "main",
+      "sourceRoot": "apps/exchange-rate/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/exchange-rate/tsconfig.app.json"
+      }
+    }
+  }
+}
