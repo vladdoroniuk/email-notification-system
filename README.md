@@ -1,4 +1,22 @@
-## System Design
+## Tasks
+
+- [x] Analyze business requirements and technical details
+- [x] Clarify questions with the customer
+- [x] Create system design diagram
+- [x] Create entity relationship diagram
+- [x] Setup NestJS monorepo
+- [ ] Create Prisma schema file based on ERD
+- [ ] Create Dockerfile for service and worker
+- [x] Create docker-compose.yml file
+- [ ] Find external BTC-to-UAH API
+- [ ] Use CQRS + event sourcing patterns
+- [ ] Use Nodemailer for mailing
+- [ ] Use Bull for task queuing
+- [ ] Use Cron for task scheduling
+- [ ] Use Pino for logging
+- [ ] Add unit tests
+
+## System Design Diagram
 
 <p align="center">
   <picture>
@@ -9,8 +27,13 @@
 
 ## Entity Relationship Diagram
 
-todo
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)">
+    <img src="./images/erd.svg">
+  </picture>
+</p>
 
-## Useful articles
+## Useful Articles
 
 - https://www.bemyaficionado.com/design-a-notification-system

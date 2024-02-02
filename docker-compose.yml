@@ -1,0 +1,53 @@
+version: '3.9'
+
+services:
+  service-app:
+    image: ./
+
+  worker-app:
+    image: ./
+
+  postgres:
+    image: postgres:13.13-bullseye
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - local_network
+
+  redis:
+    image: redis:7.2.4-bookworm
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data
+    networks:
+      - local_network
+
+  prometheus:
+    image: prom/prometheus:v2.45.3
+    container_name: prometheus
+    restart: always
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus_data:/prometheus
+    networks:
+      - local_network
+
+volumes:
+  postgres_data: {}
+  redis_data: {}
+  prometheus_data: {}
+
+networks:
+  local_network:
+    driver: bridge
