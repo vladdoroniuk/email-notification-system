@@ -1,4 +1,4 @@
-# System Design
+## System Design
 
 <p align="center">
   <picture>
@@ -7,6 +7,10 @@
   </picture>
 </p>
 
-# Entity Relationship Diagram
+## Entity Relationship Diagram
 
 todo
+
+## Useful articles
+
+- https://www.bemyaficionado.com/design-a-notification-system
