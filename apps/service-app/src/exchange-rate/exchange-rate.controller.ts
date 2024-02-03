@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { GetExchangeRate } from '../../../../../libs/contracts';
-import { ExchangeRateService } from '../../application/services/exchange-rate.service';
+import { ExchangeRateService } from './exchange-rate.service';
+import { GetExchangeRate } from './interfaces/exchange-rate.interface';
 
 @Controller('rate')
 export class ExchangeRateController {

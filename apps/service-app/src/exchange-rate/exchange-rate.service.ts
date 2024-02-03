@@ -1,12 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { NetworkService } from '../../infrastructure/network/network.service';
-import { GetExchangeRate, CreateNetworkRequest } from 'libs/contracts';
-import {
-  COINMARKETCAP_API_URL,
-  CURRENCIES,
-  extractExchangeRate,
-} from 'libs/utils';
+import { NetworkService } from '../network-request/network-request.service';
+import { GetExchangeRate } from './interfaces/exchange-rate.interface';
+import { CreateNetworkRequest } from '../network-request/interfaces/network-request.interface';
+import { COINMARKETCAP_API_URL, CURRENCIES } from 'libs/utils/consts';
+import { extractExchangeRate } from 'libs/utils/array';
 
 @Injectable()
 export class ExchangeRateService {
@@ -38,6 +36,6 @@ export class ExchangeRateService {
       CURRENCIES.fiat.uah,
     );
 
-    return rate;
+    return { rate };
   }
 }

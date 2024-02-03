@@ -54,6 +54,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/prometheus/tsconfig.lib.json"
       }
+    },
+    "axios": {
+      "type": "library",
+      "root": "libs/axios",
+      "entryFile": "index",
+      "sourceRoot": "libs/axios/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/axios/tsconfig.lib.json"
+      }
     }
   }
 }

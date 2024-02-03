@@ -5,7 +5,7 @@ import {
   makeGaugeProvider,
 } from '@willsoto/nestjs-prometheus';
 import { PrometheusService } from './prometheus.service';
-import { METRICS } from 'libs/utils';
+import { METRICS } from 'libs/utils/consts';
 
 @Global()
 @Module({

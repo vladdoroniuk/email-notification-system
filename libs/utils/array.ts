@@ -1,15 +1,13 @@
-import { GetExchangeRate } from '../contracts';
-
 export const extractExchangeRate = (
   data,
   cryptoSymbol: string,
   fiatSymbol: string,
-): GetExchangeRate => {
+): number => {
   const { data: cryptoArray } = data;
   const rateObject = cryptoArray.find(
     (crypto) => crypto.symbol === cryptoSymbol,
   );
   const rate = rateObject.quote[fiatSymbol].price;
 
-  return { rate };
+  return rate;
 };

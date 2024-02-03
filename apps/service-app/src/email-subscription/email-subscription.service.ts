@@ -1,6 +1,6 @@
 import { PrometheusService } from '@app/prometheus/prometheus.service';
 import { Injectable } from '@nestjs/common';
-import { CreateEmailSubscription } from 'libs/contracts';
+import { CreateEmailSubscription } from './interfaces/email-subscription.interface';
 
 @Injectable()
 export class EmailSubscriptonService {

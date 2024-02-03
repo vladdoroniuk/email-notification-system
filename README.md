@@ -9,7 +9,7 @@
 - [x] Create Dockerfile for service and worker
 - [x] Create docker-compose.yml file
 - [x] Find external BTC-to-UAH API
-- [x] Setup Prometheus, Pushgateway, Redis, PostgreSQL
+- [x] Setup Prometheus, Redis, PostgreSQL
 - [ ] Create endpoints
   - [x] GET /rate
   - [ ] POST /rate

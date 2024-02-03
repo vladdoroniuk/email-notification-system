@@ -1,15 +1,25 @@
+import { ConfigurationModule } from '@app/configuration/configuration.module';
+import { PrismaModule } from '@app/prisma/prisma.module';
+import { PrometheusModule } from '@app/prometheus/prometheus.module';
 import { Module } from '@nestjs/common';
-import { PresentationModule } from './presentation/presentation.module';
-import { ApplicationModule } from './application/application.module';
-import { DomainModule } from './domain/domain.module';
-import { InfrastructureModule } from './infrastructure/infrastructure.module';
+import { APP_PIPE } from '@nestjs/core';
+import { ZodValidationPipe } from 'nestjs-zod';
+import { ExchangeRateModule } from './exchange-rate/exchange-rate.module';
+import { EmailSubscriptionModule } from './email-subscription/email-subscription.module';
 
 @Module({
   imports: [
-    PresentationModule,
-    ApplicationModule,
-    DomainModule,
-    InfrastructureModule,
+    ConfigurationModule,
+    PrismaModule,
+    PrometheusModule,
+    ExchangeRateModule,
+    EmailSubscriptionModule,
+  ],
+  providers: [
+    {
+      provide: APP_PIPE,
+      useClass: ZodValidationPipe,
+    },
   ],
 })
 export class AppModule {}

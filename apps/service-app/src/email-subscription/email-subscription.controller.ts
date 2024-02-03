@@ -1,6 +1,6 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
-import { CreateEmailSubscriptionDto } from '../dtos';
-import { EmailSubscriptonService } from '../../application/services';
+import { CreateEmailSubscriptionDto } from './dtos';
+import { EmailSubscriptonService } from './email-subscription.service';
 
 @Controller('emails')
 export class EmailSubscriptionController {
