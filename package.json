@@ -9,6 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
     "db:gen": "npx prisma generate",
+    "db:studio": "npx prisma studio",
     "db:migrate": "npx prisma migrate dev",
     "db:reset": "npx prisma db push --force-reset",
     "start": "nest start",
@@ -23,7 +24,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "prisma": {
-    "schema": "libs/prisma/src/schema.prisma"
+    "schema": "libs/prisma/schema.prisma"
   },
   "dependencies": {
     "@nestjs/axios": "^3.0.1",

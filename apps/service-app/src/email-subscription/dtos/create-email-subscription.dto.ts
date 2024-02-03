@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 import { z } from 'nestjs-zod/z';
-import { CreateEmailSubscription } from '../interfaces/create-email-subscription.interface';
+import { CreateEmailSubscription } from '../interfaces';
 
 const CreateEmailSubscriptionSchema = z
   .object({

@@ -33,7 +33,10 @@ services:
         - APP_NAME=worker-app
     container_name: worker-app
     restart: always
+    ports:
+      - ${WORKER_APP_PORT}:${WORKER_APP_PORT}
     environment:
+      - WORKER_APP_PORT=${WORKER_APP_PORT}
       - POSTGRES_HOST=${POSTGRES_CONTAINER_HOST}
       - POSTGRES_PORT=${POSTGRES_PORT}
       - POSTGRES_USER=${POSTGRES_USER}
@@ -73,7 +76,7 @@ services:
       - ${PROMETHEUS_PORT}:${PROMETHEUS_PORT}
     volumes:
       - prometheus_data:/prometheus
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./libs/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
 
 volumes:
   postgres_data: {}

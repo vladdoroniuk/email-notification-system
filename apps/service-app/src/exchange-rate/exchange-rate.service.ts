@@ -5,12 +5,14 @@ import { GetExchangeRate } from './interfaces/get-exchange-rate.interface';
 import { CreateNetworkRequest } from '../network-request/interfaces/create-network-request.interface';
 import { COINMARKETCAP_API_URL, CURRENCIES } from 'libs/utils/consts';
 import { extractExchangeRate } from 'libs/utils/array';
+import { PrometheusService } from '@app/prometheus/prometheus.service';
 
 @Injectable()
 export class ExchangeRateService {
   constructor(
     private readonly networkService: NetworkService,
     private readonly configService: ConfigService,
+    private readonly prometheusService: PrometheusService,
   ) {}
 
   async getExchangeRate(): Promise<GetExchangeRate> {
@@ -35,6 +37,8 @@ export class ExchangeRateService {
       CURRENCIES.crypto.btc,
       CURRENCIES.fiat.uah,
     );
+
+    this.prometheusService.setExchangeRateGauge(rate);
 
     return { rate };
   }

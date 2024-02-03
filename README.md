@@ -14,16 +14,16 @@
   - [x] GET /rate
   - [ ] POST /rate
   - [ ] GET /emails
-  - [ ] POST /emails
-  - [ ] DELETE /emails
+  - [x] POST /emails
+  - [x] DELETE /emails
   - [ ] GET /metrics
-- [ ] Create metrics
+- [ ] Collect metrics
   - [x] subscribe email count
-  - [ ] unsubscribe email count
+  - [x] unsubscribe email count
   - [ ] send email count
   - [ ] send email error count
-  - [ ] exchange rate gauge
-- [ ] Use CQRS pattern
+  - [x] exchange rate gauge
+- [x] Use CQRS pattern
 - [ ] Use Nodemailer for mailing
 - [ ] Use Bull for task queuing
 - [ ] Use Cron for task scheduling
