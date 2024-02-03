@@ -29,6 +29,12 @@
       ],
       "@app/configuration/*": [
         "libs/configuration/src/*"
+      ],
+      "@app/prometheus": [
+        "libs/prometheus/src"
+      ],
+      "@app/prometheus/*": [
+        "libs/prometheus/src/*"
       ]
     }
   }

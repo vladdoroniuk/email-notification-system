@@ -86,7 +86,8 @@
     ],
     "moduleNameMapper": {
       "^@app/prisma(|/.*)$": "<rootDir>/libs/prisma/src/$1",
-      "^@app/configuration(|/.*)$": "<rootDir>/libs/configuration/src/$1"
+      "^@app/configuration(|/.*)$": "<rootDir>/libs/configuration/src/$1",
+      "^@app/prometheus(|/.*)$": "<rootDir>/libs/prometheus/src/$1"
     }
   }
 }
