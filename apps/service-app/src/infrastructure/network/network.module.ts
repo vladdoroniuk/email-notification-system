@@ -8,4 +8,4 @@ import { NetworkService } from './network.service';
   providers: [NetworkService],
   exports: [NetworkService],
 })
-export class NewtorkModule {}
+export class NetworkModule {}

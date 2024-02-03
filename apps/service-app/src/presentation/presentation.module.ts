@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { APP_PIPE } from '@nestjs/core';
 import { ZodValidationPipe } from 'nestjs-zod';
 import { ApplicationModule } from '../application/application.module';
-import { ExchangeRateController } from './controllers/rate.controller';
+import { ExchangeRateController } from './controllers/exchange-rate.controller';
 
 @Module({
   imports: [ApplicationModule],
