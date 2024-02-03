@@ -5,24 +5,27 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - APP_NAME=service-app
     container_name: service-app
     restart: always
     ports:
       - ${PORT}:${PORT}
     environment:
       - COINMARKETCAP_API_KEY=${COINMARKETCAP_API_KEY}
-      - POSTGRES_HOST=${POSTGRES_URL}
+      - POSTGRES_HOST=${POSTGRES_CONTAINER_HOST}
       - POSTGRES_PORT=${POSTGRES_PORT}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_URL=${POSTGRES_URL}
+      - POSTGRES_URL=${POSTGRES_CONTAINER_URL}
     depends_on:
       - postgres
       - redis
+      - prometheus
 
-  worker-app:
-    image: ./
+  # worker-app:
+  #   image: ./
 
   postgres:
     image: postgres:13.13-bullseye
@@ -35,8 +38,6 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - local_network
 
   redis:
     image: redis:7.2.4-bookworm
@@ -46,8 +47,6 @@ services:
       - ${REDIS_PORT}:${REDIS_PORT}
     volumes:
       - redis_data:/data
-    networks:
-      - local_network
 
   prometheus:
     image: prom/prometheus:v2.45.3
@@ -57,14 +56,8 @@ services:
       - ${PROMETHEUS_PORT}:${PROMETHEUS_PORT}
     volumes:
       - prometheus_data:/prometheus
-    networks:
-      - local_network
 
 volumes:
   postgres_data: {}
   redis_data: {}
   prometheus_data: {}
-
-networks:
-  local_network:
-    driver: bridge
