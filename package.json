@@ -36,6 +36,7 @@
     "axios": "^1.6.7",
     "helmet": "^7.1.0",
     "nestjs-zod": "^3.0.0",
+    "prom-client": "^15.1.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "zod": "^3.22.4"
