@@ -32,3 +32,11 @@ export const METRICS = {
     help: 'exchange_rate_gauge_help',
   },
 };
+
+export const EVENTS = {
+  email_subscribed_event: 'email_subscribed',
+};
+
+export const TCP_CLIENTS = {
+  email_subscription_client: 'EMAIL_SUBSCRIPTION',
+};

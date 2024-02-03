@@ -1,7 +1,10 @@
 global:
-  scrape_interval: 5s
+  scrape_interval: 10s
+
 scrape_configs:
-  - job_name: prometheus
+  - job_name: 'service-app'
+    metrics_path: '/api/prom/metrics'
     static_configs:
-      - targets:
-          - prometheus:9090
+      - targets: ['service-app:3001']
+
+remote_write:

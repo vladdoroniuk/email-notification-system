@@ -23,7 +23,7 @@
   - [ ] send email count
   - [ ] send email error count
   - [ ] exchange rate gauge
-- [ ] Use CQRS + event sourcing patterns
+- [ ] Use CQRS pattern
 - [ ] Use Nodemailer for mailing
 - [ ] Use Bull for task queuing
 - [ ] Use Cron for task scheduling

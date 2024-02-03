@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NetworkService } from '../network-request/network-request.service';
-import { GetExchangeRate } from './interfaces/exchange-rate.interface';
-import { CreateNetworkRequest } from '../network-request/interfaces/network-request.interface';
+import { GetExchangeRate } from './interfaces/get-exchange-rate.interface';
+import { CreateNetworkRequest } from '../network-request/interfaces/create-network-request.interface';
 import { COINMARKETCAP_API_URL, CURRENCIES } from 'libs/utils/consts';
 import { extractExchangeRate } from 'libs/utils/array';
 

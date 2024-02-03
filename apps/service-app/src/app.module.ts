@@ -1,6 +1,5 @@
 import { ConfigurationModule } from '@app/configuration/configuration.module';
 import { PrismaModule } from '@app/prisma/prisma.module';
-import { PrometheusModule } from '@app/prometheus/prometheus.module';
 import { Module } from '@nestjs/common';
 import { APP_PIPE } from '@nestjs/core';
 import { ZodValidationPipe } from 'nestjs-zod';
@@ -11,7 +10,6 @@ import { EmailSubscriptionModule } from './email-subscription/email-subscription
   imports: [
     ConfigurationModule,
     PrismaModule,
-    PrometheusModule,
     ExchangeRateModule,
     EmailSubscriptionModule,
   ],

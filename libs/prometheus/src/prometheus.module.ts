@@ -14,6 +14,7 @@ import { METRICS } from 'libs/utils/consts';
       defaultMetrics: {
         enabled: false,
       },
+      path: '/prom/metrics',
     }),
   ],
   providers: [

@@ -20,6 +20,7 @@ USER node
 
 # Production
 FROM node:21.6.1-bullseye-slim AS production
+WORKDIR /usr/src/app
 ARG APP_NAME
 ENV NODE_ENV production
 ENV APP_NAME ${APP_NAME}

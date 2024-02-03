@@ -22,10 +22,6 @@ export class PrometheusService {
     this.subscribeEmailCounter.inc();
   }
 
-  async getSubscribeEmailCounter() {
-    return this.subscribeEmailCounter.get();
-  }
-
   increaseUnsubscribeEmailCounter() {
     this.unsubscribeEmailCounter.inc();
   }
@@ -38,11 +34,7 @@ export class PrometheusService {
     this.sendEmailErrorCounter.inc();
   }
 
-  increaseExchangeRateGauge() {
-    this.exchangeRateGauge.inc();
-  }
-
-  decreaseExchangeRateGauge() {
-    this.exchangeRateGauge.dec();
+  setExchangeRateGauge(value: number) {
+    this.exchangeRateGauge.set(value);
   }
 }

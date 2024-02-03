@@ -8,6 +8,7 @@ import { patchNestJsSwagger } from 'nestjs-zod';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get<ConfigService>(ConfigService);
+  const port = configService.get<number>('SERVICE_APP_PORT')!;
 
   app.setGlobalPrefix('api');
   app.enableCors();
@@ -22,7 +23,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  const port = configService.get<number>('PORT')!;
   await app.listen(port);
 }
 bootstrap();

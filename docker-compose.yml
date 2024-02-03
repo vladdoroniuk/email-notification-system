@@ -10,8 +10,9 @@ services:
     container_name: service-app
     restart: always
     ports:
-      - ${PORT}:${PORT}
+      - ${SERVICE_APP_PORT}:${SERVICE_APP_PORT}
     environment:
+      - SERVICE_APP_PORT=${SERVICE_APP_PORT}
       - COINMARKETCAP_API_KEY=${COINMARKETCAP_API_KEY}
       - POSTGRES_HOST=${POSTGRES_CONTAINER_HOST}
       - POSTGRES_PORT=${POSTGRES_PORT}
@@ -24,8 +25,24 @@ services:
       - redis
       - prometheus
 
-  # worker-app:
-  #   image: ./
+  worker-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - APP_NAME=worker-app
+    container_name: worker-app
+    restart: always
+    environment:
+      - POSTGRES_HOST=${POSTGRES_CONTAINER_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_URL=${POSTGRES_CONTAINER_URL}
+    depends_on:
+      - postgres
+      - prometheus
 
   postgres:
     image: postgres:13.13-bullseye

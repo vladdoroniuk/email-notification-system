@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
-import { EmailSubscriptonService } from './email-subscription.service';
 import { EmailSubscriptionController } from './email-subscription.controller';
+import { CqrsModule } from '@nestjs/cqrs';
+import { CreateEmailSubscriptionHandler } from './commands/handlers/create-email-subscription.handler';
+import { PrometheusModule } from '@app/prometheus/prometheus.module';
 
 @Module({
-  providers: [EmailSubscriptonService],
+  imports: [CqrsModule, PrometheusModule],
   controllers: [EmailSubscriptionController],
+  providers: [CreateEmailSubscriptionHandler],
 })
 export class EmailSubscriptionModule {}

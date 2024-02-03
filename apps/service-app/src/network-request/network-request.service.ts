@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { HttpException, Injectable } from '@nestjs/common';
 import { catchError, firstValueFrom } from 'rxjs';
-import { CreateNetworkRequest } from './interfaces/network-request.interface';
+import { CreateNetworkRequest } from './interfaces/create-network-request.interface';
 
 @Injectable()
 export class NetworkService {
