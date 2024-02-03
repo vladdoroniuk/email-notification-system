@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NetworkService } from '../../infrastructure/network/network.service';
+import { GetExchangeRate, CreateNetworkRequest } from 'libs/contracts';
 import {
-  GetExchangeRate,
-  NetworkRequestParams,
-} from '../../shared/abstractions';
-import { COINMARKETCAP_API_URL, CURRENCIES } from '../../shared/utils';
-import { extractExchangeRate } from '../../shared/utils/array';
+  COINMARKETCAP_API_URL,
+  CURRENCIES,
+  extractExchangeRate,
+} from 'libs/utils';
 
 @Injectable()
 export class ExchangeRateService {
@@ -16,7 +16,7 @@ export class ExchangeRateService {
   ) {}
 
   async getExchangeRate(): Promise<GetExchangeRate> {
-    const urlData: NetworkRequestParams = {
+    const urlData: CreateNetworkRequest = {
       baseUrl: COINMARKETCAP_API_URL,
       config: {
         params: {

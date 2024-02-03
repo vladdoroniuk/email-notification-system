@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import { ConfigurationModule } from '../../../../libs/configuration/src/configuration.module';
-import { PrismaModule } from '../../../../libs/prisma/src/prisma.module';
 import { NetworkModule } from './network/network.module';
+import { ConfigurationModule } from '@app/configuration/configuration.module';
+import { PrismaModule } from '@app/prisma/prisma.module';
+import { PrometheusModule } from '@app/prometheus/prometheus.module';
 
 @Module({
-  imports: [ConfigurationModule, PrismaModule, NetworkModule],
+  imports: [ConfigurationModule, PrismaModule, PrometheusModule, NetworkModule],
 })
 export class InfrastructureModule {}

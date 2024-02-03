@@ -9,7 +9,7 @@
 - [x] Create Dockerfile for service and worker
 - [x] Create docker-compose.yml file
 - [x] Find external BTC-to-UAH API
-- [ ] Setup Prometheus, Redis, PostgreSQL
+- [x] Setup Prometheus, Pushgateway, Redis, PostgreSQL
 - [ ] Create endpoints
   - [x] GET /rate
   - [ ] POST /rate
@@ -17,6 +17,12 @@
   - [ ] POST /emails
   - [ ] DELETE /emails
   - [ ] GET /metrics
+- [ ] Create metrics
+  - [x] subscribe email count
+  - [ ] unsubscribe email count
+  - [ ] send email count
+  - [ ] send email error count
+  - [ ] exchange rate gauge
 - [ ] Use CQRS + event sourcing patterns
 - [ ] Use Nodemailer for mailing
 - [ ] Use Bull for task queuing
@@ -45,3 +51,4 @@
 ## Useful Articles
 
 - https://www.bemyaficionado.com/design-a-notification-system
+- https://blog.risingstack.com/node-js-performance-monitoring-with-prometheus/

@@ -1,4 +1,4 @@
-import { GetExchangeRate } from '../abstractions';
+import { GetExchangeRate } from '../contracts';
 
 export const extractExchangeRate = (
   data,

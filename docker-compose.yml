@@ -56,13 +56,7 @@ services:
       - ${PROMETHEUS_PORT}:${PROMETHEUS_PORT}
     volumes:
       - prometheus_data:/prometheus
-
-  pushgateway:
-    image: prom/pushgateway:v1.7.0
-    container_name: pushgateway
-    restart: always
-    ports:
-      - ${PUSHGATEWAY_PORT}:${PUSHGATEWAY_PORT}
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
 
 volumes:
   postgres_data: {}

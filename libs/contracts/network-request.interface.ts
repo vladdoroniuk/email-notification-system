@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 
-export class NetworkRequestParams {
+export class CreateNetworkRequest {
   baseUrl: string;
   config: AxiosRequestConfig;
 }

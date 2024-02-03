@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { GetExchangeRate } from '../../shared/abstractions';
+import { GetExchangeRate } from '../../../../../libs/contracts';
 import { ExchangeRateService } from '../../application/services/exchange-rate.service';
 
 @Controller('rate')

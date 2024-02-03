@@ -1,13 +1,13 @@
 import { HttpService } from '@nestjs/axios';
 import { HttpException, Injectable } from '@nestjs/common';
+import { CreateNetworkRequest } from 'libs/contracts';
 import { catchError, firstValueFrom } from 'rxjs';
-import { NetworkRequestParams } from '../../shared/abstractions';
 
 @Injectable()
 export class NetworkService {
   constructor(private readonly httpService: HttpService) {}
 
-  async createNetworkRequest(urlData: NetworkRequestParams): Promise<any> {
+  async createNetworkRequest(urlData: CreateNetworkRequest): Promise<any> {
     const { baseUrl, config } = urlData;
 
     return firstValueFrom(
