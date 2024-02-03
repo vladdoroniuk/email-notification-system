@@ -1,0 +1,36 @@
+version: '3'
+
+tasks:
+  colima_start:
+    cmds:
+      - colima start --arch linux/amd64
+
+  docker_stop_all:
+    deps: [colima_start]
+    cmds:
+      - docker ps -q | xargs -r docker stop
+
+  docker_prune_all:
+    deps: [colima_start, docker_stop_all]
+    cmds:
+      - docker system prune -af
+
+  docker_up:
+    deps: [colima_start]
+    cmds:
+      - docker compose up -d
+
+  docker_ls:
+    deps: [colima_start]
+    cmds:
+      - docker container ls -a
+
+  docker_bk0_up:
+    deps: [colima_start, docker_prune_all]
+    cmds:
+      - DOCKER_BUILDKIT=0 docker compose up -d
+
+  docker_debug_run:
+    deps: [colima_start]
+    cmds:
+      - docker run --rm -it {{.CLI_ARGS}} sh

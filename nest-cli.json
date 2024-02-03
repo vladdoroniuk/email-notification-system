@@ -10,31 +10,31 @@
   "monorepo": true,
   "root": "apps/btc-exchange-rate",
   "projects": {
-    "btc-exchange-rate": {
+    "worker-app": {
       "type": "application",
-      "root": "apps/btc-exchange-rate",
+      "root": "apps/worker-app",
       "entryFile": "main",
-      "sourceRoot": "apps/btc-exchange-rate/src",
+      "sourceRoot": "apps/worker-app/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/btc-exchange-rate/tsconfig.app.json"
+        "tsConfigPath": "apps/worker-app/tsconfig.app.json"
       }
     },
-    "metrics": {
+    "service-app": {
       "type": "application",
-      "root": "apps/metrics",
+      "root": "apps/service-app",
       "entryFile": "main",
-      "sourceRoot": "apps/metrics/src",
+      "sourceRoot": "apps/service-app/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/metrics/tsconfig.app.json"
+        "tsConfigPath": "apps/service-app/tsconfig.app.json"
       }
     },
-    "exchange-rate": {
-      "type": "application",
-      "root": "apps/exchange-rate",
-      "entryFile": "main",
-      "sourceRoot": "apps/exchange-rate/src",
+    "prisma": {
+      "type": "library",
+      "root": "libs/prisma",
+      "entryFile": "index",
+      "sourceRoot": "libs/prisma/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/exchange-rate/tsconfig.app.json"
+        "tsConfigPath": "libs/prisma/tsconfig.lib.json"
       }
     }
   }

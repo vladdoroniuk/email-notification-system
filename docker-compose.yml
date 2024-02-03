@@ -2,7 +2,24 @@ version: '3.9'
 
 services:
   service-app:
-    image: ./
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: service-app
+    restart: always
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY}
+      - POSTGRES_HOST=${POSTGRES_URL}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_URL=${POSTGRES_URL}
+    depends_on:
+      - postgres
+      - redis
 
   worker-app:
     image: ./
@@ -12,10 +29,10 @@ services:
     container_name: postgres
     restart: always
     ports:
-      - 5432:5432
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -26,7 +43,7 @@ services:
     container_name: redis
     restart: always
     ports:
-      - 6379:6379
+      - ${REDIS_PORT}:${REDIS_PORT}
     volumes:
       - redis_data:/data
     networks:
@@ -37,7 +54,7 @@ services:
     container_name: prometheus
     restart: always
     ports:
-      - 9090:9090
+      - ${PROMETHEUS_PORT}:${PROMETHEUS_PORT}
     volumes:
       - prometheus_data:/prometheus
     networks:

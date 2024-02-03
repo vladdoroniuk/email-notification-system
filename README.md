@@ -4,11 +4,11 @@
 - [x] Clarify questions with the customer
 - [x] Create system design diagram
 - [x] Create entity relationship diagram
-- [x] Setup NestJS monorepo
-- [ ] Create Prisma schema file based on ERD
-- [ ] Create Dockerfile for service and worker
+- [ ] Setup NestJS monorepo
+- [x] Create Prisma schema file based on ERD
+- [x] Create Dockerfile for service and worker
 - [x] Create docker-compose.yml file
-- [ ] Find external BTC-to-UAH API
+- [x] Find external BTC-to-UAH API
 - [ ] Use CQRS + event sourcing patterns
 - [ ] Use Nodemailer for mailing
 - [ ] Use Bull for task queuing
