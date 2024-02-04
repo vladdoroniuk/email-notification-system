@@ -6,10 +6,15 @@ import {
   CreateEmailSubscriptionHandler,
   DeleteEmailSubscriptionHandler,
 } from './commands/handlers';
+import { GetEmailSubscriptionsHandler } from './queries/handlers';
 
 @Module({
   imports: [CqrsModule, PrometheusModule],
   controllers: [EmailSubscriptionController],
-  providers: [CreateEmailSubscriptionHandler, DeleteEmailSubscriptionHandler],
+  providers: [
+    CreateEmailSubscriptionHandler,
+    DeleteEmailSubscriptionHandler,
+    GetEmailSubscriptionsHandler,
+  ],
 })
 export class EmailSubscriptionModule {}

@@ -18,7 +18,7 @@ export class PrometheusService {
     private readonly exchangeRateGauge: Gauge<string>,
   ) {}
 
-  async getMetrics() {
+  async getAllMetrics() {
     return register.metrics();
   }
 

@@ -13,22 +13,22 @@ export const CURRENCIES = {
 export const METRICS = {
   subscribeEmailCounter: {
     name: 'subscribe_email_count',
-    help: 'subscribe_email_count_help',
+    help: 'Counts the number of successful email subscriptions',
   },
   unsubscribeEmailCounter: {
     name: 'unsubscribe_email_count',
-    help: 'unsubscribe_email_count_help',
+    help: 'Counts the number of successful email unsubscriptions',
   },
   sendEmailSuccessfulCounter: {
     name: 'send_email_successful_count',
-    help: 'send_email_successful_count_help',
+    help: 'Counts the number of successfully sent emails',
   },
   sendEmailErrorCounter: {
     name: 'send_email_error_count',
-    help: 'send_email_error_count_help',
+    help: 'Counts the number of email sending errors',
   },
   exchangeRateGauge: {
     name: 'exchange_rate_gauge',
-    help: 'exchange_rate_gauge_help',
+    help: 'Tracks the current exchange rate',
   },
 };

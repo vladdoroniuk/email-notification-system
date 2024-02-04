@@ -33,6 +33,6 @@ export class CreateEmailSubscriptionHandler
     });
 
     this.prometheusService.increaseSubscribeEmailCounter();
-    console.log(await this.prometheusService.getMetrics());
+    console.log(await this.prometheusService.getAllMetrics());
   }
 }

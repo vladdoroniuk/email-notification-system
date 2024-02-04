@@ -6,14 +6,14 @@
 - [x] Create entity relationship diagram
 - [x] Setup NestJS monorepo
 - [x] Create Prisma schema file based on ERD
-- [x] Create Dockerfile for service and worker
+- [x] Create Dockerfile for service app and worker app
 - [x] Create docker-compose.yml file
-- [x] Find external BTC-to-UAH API
-- [x] Setup Prometheus, Redis, PostgreSQL
+- [x] Connect to external BTC-to-UAH API
+- [x] Configure Prometheus and prom-client
 - [ ] Create endpoints
   - [x] GET /rate
   - [ ] POST /rate
-  - [ ] GET /emails
+  - [x] GET /emails
   - [x] POST /emails
   - [x] DELETE /emails
   - [ ] GET /metrics
