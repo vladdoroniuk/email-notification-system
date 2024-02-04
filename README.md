@@ -16,7 +16,7 @@
   - [x] GET /emails
   - [x] POST /emails
   - [x] DELETE /emails
-  - [ ] GET /metrics
+  - [x] GET /metrics
 - [ ] Collect metrics
   - [x] subscribe email count
   - [x] unsubscribe email count

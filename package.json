@@ -33,6 +33,7 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/cqrs": "^10.2.6",
     "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/schedule": "^4.0.0",
     "@nestjs/swagger": "^7.2.0",
     "@prisma/client": "^5.9.1",
     "@willsoto/nestjs-prometheus": "^6.0.0",
@@ -92,7 +93,8 @@
       "^@app/prisma(|/.*)$": "<rootDir>/libs/prisma/src/$1",
       "^@app/configuration(|/.*)$": "<rootDir>/libs/configuration/src/$1",
       "^@app/prometheus(|/.*)$": "<rootDir>/libs/prometheus/src/$1",
-      "^@app/axios(|/.*)$": "<rootDir>/libs/axios/src/$1"
+      "^@app/axios(|/.*)$": "<rootDir>/libs/axios/src/$1",
+      "^@app/network(|/.*)$": "<rootDir>/libs/network/src/$1"
     }
   }
 }

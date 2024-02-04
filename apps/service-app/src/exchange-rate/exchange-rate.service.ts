@@ -1,11 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { NetworkService } from '../network-request/network-request.service';
 import { GetExchangeRate } from './interfaces/get-exchange-rate.interface';
-import { CreateNetworkRequest } from '../network-request/interfaces/create-network-request.interface';
 import { COINMARKETCAP_API_URL, CURRENCIES } from 'libs/utils/consts';
-import { extractExchangeRate } from 'libs/utils/array';
 import { PrometheusService } from '@app/prometheus/prometheus.service';
+import { CreateNetworkRequest } from '@app/network/interfaces/create-network-request.interface';
+import { NetworkService } from '@app/network/network.service';
 
 @Injectable()
 export class ExchangeRateService {
@@ -32,7 +31,7 @@ export class ExchangeRateService {
     };
 
     const { data } = await this.networkService.createNetworkRequest(urlData);
-    const rate = extractExchangeRate(
+    const rate = this.extractExchangeRate(
       data,
       CURRENCIES.crypto.btc,
       CURRENCIES.fiat.uah,
@@ -41,5 +40,19 @@ export class ExchangeRateService {
     this.prometheusService.setExchangeRateGauge(rate);
 
     return { rate };
+  }
+
+  private extractExchangeRate(
+    data,
+    cryptoSymbol: string,
+    fiatSymbol: string,
+  ): number {
+    const { data: cryptoArray } = data;
+    const rateObject = cryptoArray.find(
+      (crypto) => crypto.symbol === cryptoSymbol,
+    );
+    const rate = rateObject.quote[fiatSymbol].price;
+
+    return rate;
   }
 }

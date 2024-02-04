@@ -1,5 +1,17 @@
+const IS_DOCKER_CONTAINER = process.env.DOCKER_CONTAINER;
+
 export const COINMARKETCAP_API_URL =
   'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
+
+export const PROMETHEUS_API_URL = IS_DOCKER_CONTAINER
+  ? 'http://prometheus:9090/api/v1/query'
+  : 'http://localhost:9090/api/v1/query';
+
+export const ROUTES = {
+  rate: '/rate',
+  emails: '/emails',
+  metrics: '/metrics',
+};
 
 export const CURRENCIES = {
   fiat: {
@@ -32,3 +44,5 @@ export const METRICS = {
     help: 'Tracks the current exchange rate',
   },
 };
+
+export const SCRAPE_INTERVAL_IN_MS = 10_000;

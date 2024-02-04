@@ -54,6 +54,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/prometheus/tsconfig.lib.json"
       }
+    },
+    "network": {
+      "type": "library",
+      "root": "libs/network",
+      "entryFile": "index",
+      "sourceRoot": "libs/network/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/network/tsconfig.lib.json"
+      }
     }
   }
 }

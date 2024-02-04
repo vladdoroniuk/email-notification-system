@@ -14,8 +14,9 @@ import {
   DeleteEmailSubscriptionCommand,
 } from './commands';
 import { GetEmailSubscriptionsQuery } from './queries';
+import { ROUTES } from 'libs/utils/consts';
 
-@Controller('emails')
+@Controller(ROUTES.emails)
 export class EmailSubscriptionController {
   constructor(
     private readonly commandBus: CommandBus,

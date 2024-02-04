@@ -13,9 +13,9 @@ ARG APP_NAME
 COPY --chown=node:node package*.json ./
 COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node . .
+RUN npx prisma generate
 RUN npm run build ${APP_NAME}
 RUN npm ci --only=production && npm cache clean --force
-RUN npx prisma generate
 USER node
 
 # Production
@@ -23,6 +23,7 @@ FROM node:21.6.1-bullseye-slim AS production
 WORKDIR /usr/src/app
 ARG APP_NAME
 ENV NODE_ENV production
+ENV DOCKER_CONTAINER true
 ENV APP_NAME ${APP_NAME}
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist

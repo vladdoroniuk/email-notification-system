@@ -22,9 +22,8 @@ enum SubscriptionStatus {
 }
 
 model Metric {
-  id          Int      @id @default(autoincrement())
-  timestamp   DateTime
-  name        String
-  description String
-  value       String
+  id        Int      @id @default(autoincrement())
+  timestamp DateTime
+  name      String
+  value     String
 }

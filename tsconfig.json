@@ -18,30 +18,16 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@app/prisma": [
-        "libs/prisma/src"
-      ],
-      "@app/prisma/*": [
-        "libs/prisma/src/*"
-      ],
-      "@app/configuration": [
-        "libs/configuration/src"
-      ],
-      "@app/configuration/*": [
-        "libs/configuration/src/*"
-      ],
-      "@app/prometheus": [
-        "libs/prometheus/src"
-      ],
-      "@app/prometheus/*": [
-        "libs/prometheus/src/*"
-      ],
-      "@app/axios": [
-        "libs/axios/src"
-      ],
-      "@app/axios/*": [
-        "libs/axios/src/*"
-      ]
-    }
-  }
+      "@app/prisma": ["libs/prisma/src"],
+      "@app/prisma/*": ["libs/prisma/src/*"],
+      "@app/configuration": ["libs/configuration/src"],
+      "@app/configuration/*": ["libs/configuration/src/*"],
+      "@app/prometheus": ["libs/prometheus/src"],
+      "@app/prometheus/*": ["libs/prometheus/src/*"],
+      "@app/axios": ["libs/axios/src"],
+      "@app/axios/*": ["libs/axios/src/*"],
+      "@app/network": ["libs/network/src"],
+      "@app/network/*": ["libs/network/src/*"],
+    },
+  },
 }

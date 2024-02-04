@@ -1,8 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
 import { ExchangeRateService } from './exchange-rate.service';
 import { GetExchangeRate } from './interfaces/get-exchange-rate.interface';
+import { ROUTES } from 'libs/utils/consts';
 
-@Controller('rate')
+@Controller(ROUTES.rate)
 export class ExchangeRateController {
   constructor(private readonly exchangeRateService: ExchangeRateService) {}
 
