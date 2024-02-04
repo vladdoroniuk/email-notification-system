@@ -2,7 +2,7 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { PrismaService } from '@app/prisma/prisma.service';
 import { GetEmailSubscriptionsQuery } from '..';
 import { Subscription } from '@prisma/client';
-import { PartialSubscription } from '../../types';
+import { PartialSubscription } from '../../interfaces/partial-subscription.interface';
 
 @QueryHandler(GetEmailSubscriptionsQuery)
 export class GetEmailSubscriptionsHandler

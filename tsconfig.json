@@ -28,6 +28,10 @@
       "@app/axios/*": ["libs/axios/src/*"],
       "@app/network": ["libs/network/src"],
       "@app/network/*": ["libs/network/src/*"],
+      "@app/mailer": ["libs/mailer/src"],
+      "@app/mailer/*": ["libs/mailer/src/*"],
+      "@app/queue": ["libs/queue/src"],
+      "@app/queue/*": ["libs/queue/src/*"],
     },
   },
 }

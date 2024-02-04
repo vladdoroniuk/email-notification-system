@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { GetExchangeRate } from './interfaces/get-exchange-rate.interface';
 import { COINMARKETCAP_API_URL, CURRENCIES } from 'libs/utils/consts';
 import { PrometheusService } from '@app/prometheus/prometheus.service';
-import { CreateNetworkRequest } from '@app/network/interfaces/create-network-request.interface';
 import { NetworkService } from '@app/network/network.service';
+import { GetExchangeRate } from './interfaces';
+import { CreateNetworkRequest } from '@app/network/interfaces/create-network-request.interface';
 
 @Injectable()
 export class ExchangeRateService {

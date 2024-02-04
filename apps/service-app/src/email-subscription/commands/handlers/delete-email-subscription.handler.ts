@@ -37,6 +37,5 @@ export class DeleteEmailSubscriptionHandler
     });
 
     this.prometheusService.increaseUnsubscribeEmailCounter();
-    console.log(await this.prometheusService.getAllMetrics());
   }
 }

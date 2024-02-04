@@ -26,7 +26,7 @@
 - [x] Use CQRS pattern
 - [ ] Use Nodemailer for mailing
 - [ ] Use Bull for task queuing
-- [ ] Use Cron for task scheduling
+- [x] Use Cron/Interval for task scheduling
 - [ ] Use Pino for logging
 - [ ] Add unit tests
 

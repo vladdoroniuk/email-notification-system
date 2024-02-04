@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectMetric } from '@willsoto/nestjs-prometheus';
 import { METRICS } from 'libs/utils/consts';
-import { register, Counter, Gauge } from 'prom-client';
+import { Counter, Gauge } from 'prom-client';
 
 @Injectable()
 export class PrometheusService {
@@ -18,10 +18,6 @@ export class PrometheusService {
     private readonly exchangeRateGauge: Gauge<string>,
   ) {}
 
-  async getAllMetrics() {
-    return register.metrics();
-  }
-
   increaseSubscribeEmailCounter() {
     this.subscribeEmailCounter.inc();
   }
@@ -30,7 +26,7 @@ export class PrometheusService {
     this.unsubscribeEmailCounter.inc();
   }
 
-  increasSendEmailSuccessfulCounter() {
+  increaseSendEmailSuccessfulCounter() {
     this.sendEmailSuccessfulCounter.inc();
   }
 
