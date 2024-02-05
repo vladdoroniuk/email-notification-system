@@ -76,13 +76,6 @@ export class ExchangeRateService {
   @Interval(EXCHANGE_RATE_INTERVAL_IN_MS)
   async sendExchangeRateToSubscribersWithInterval() {
     const { rate } = await this.getExchangeRate();
-    await this.getSubscribedEmailsAndSendExchangeRate(rate);
-  }
-
-  @Cron('0 6 * * *', { timeZone: CRON_TIME_ZONE })
-  async sendExchangeRateToSubscribersWithSchedule() {
-    const { rate } = await this.getExchangeRate();
-
     const cachedRateSinceLastEmail: number | undefined =
       await this.cacheManager.get(EXCHANGE_RATE_CACHE_KEY);
 
@@ -99,6 +92,12 @@ export class ExchangeRateService {
       await this.cacheManager.set(EXCHANGE_RATE_CACHE_KEY, rate);
       await this.getSubscribedEmailsAndSendExchangeRate(rate);
     }
+  }
+
+  @Cron('0 9 * * *', { timeZone: CRON_TIME_ZONE })
+  async sendExchangeRateToSubscribersWithSchedule() {
+    const { rate } = await this.getExchangeRate();
+    await this.getSubscribedEmailsAndSendExchangeRate(rate);
   }
 
   async getSubscribedEmailsAndSendExchangeRate(rate: number) {
