@@ -50,6 +50,15 @@
   </picture>
 </p>
 
+## Services
+
+- localhost:3001 -> Service App
+- localhost:3002 -> Worker App
+- localhost:9090 -> Prometheus
+- localhost:6379 -> Redis
+- localhost:5432 -> PostgreSQL
+- localhost:5555 -> Prisma Studio (npm run db:studio)
+
 ## Useful Articles
 
 - https://www.bemyaficionado.com/design-a-notification-system
