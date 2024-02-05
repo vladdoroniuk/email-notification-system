@@ -12,6 +12,7 @@
     "db:studio": "npx prisma studio",
     "db:migrate": "npx prisma migrate dev",
     "db:reset": "npx prisma db push --force-reset",
+    "start:all": "npm run start:dev service-app && npm run start:dev worker-app",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -29,6 +30,7 @@
   "dependencies": {
     "@nestjs/axios": "^3.0.1",
     "@nestjs/bull": "^10.0.1",
+    "@nestjs/cache-manager": "^2.2.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.1.1",
     "@nestjs/core": "^10.0.0",
@@ -40,6 +42,7 @@
     "@willsoto/nestjs-prometheus": "^6.0.0",
     "axios": "^1.6.7",
     "bullmq": "^5.1.8",
+    "cache-manager": "^5.4.0",
     "helmet": "^7.1.0",
     "nestjs-zod": "^3.0.0",
     "nodemailer": "^6.9.9",

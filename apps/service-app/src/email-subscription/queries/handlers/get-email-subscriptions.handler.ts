@@ -1,8 +1,7 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { PrismaService } from '@app/prisma/prisma.service';
 import { GetEmailSubscriptionsQuery } from '..';
-import { Subscription } from '@prisma/client';
-import { PartialSubscription } from '../../interfaces/partial-subscription.interface';
+import { PartialSubscription } from '../../interfaces';
 
 @QueryHandler(GetEmailSubscriptionsQuery)
 export class GetEmailSubscriptionsHandler
@@ -12,15 +11,6 @@ export class GetEmailSubscriptionsHandler
 
   async execute(): Promise<PartialSubscription[]> {
     const existingSubscriptions = await this.prisma.subscription.findMany();
-    const formattedSubscriptions = this.formatExistingSubscriptions(
-      existingSubscriptions,
-    );
-    return formattedSubscriptions;
-  }
-
-  private formatExistingSubscriptions(
-    existingSubscriptions: Subscription[],
-  ): PartialSubscription[] {
     const formattedSubscriptions: PartialSubscription[] = [];
 
     for (const subscription of existingSubscriptions) {

@@ -13,7 +13,7 @@ export class DeleteEmailSubscriptionHandler
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(command: DeleteEmailSubscriptionCommand): Promise<void> {
+  async execute(command: DeleteEmailSubscriptionCommand) {
     const { data: _data } = command;
 
     const existingSubscription = await this.prisma.subscription.findUnique({

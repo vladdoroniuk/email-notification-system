@@ -1,6 +1,6 @@
 import { Controller, Get, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { ExchangeRateService } from './exchange-rate.service';
-import { ROUTES } from 'libs/utils/consts';
+import { ROUTES, SEND_RATE_RESPONSE_MESSAGE } from 'libs/utils/consts';
 import { QueryBus } from '@nestjs/cqrs';
 import { SendEmailsToSubscribers } from './queries';
 import { GetExchangeRate } from './interfaces';
@@ -20,6 +20,11 @@ export class ExchangeRateController {
   @Post()
   @HttpCode(HttpStatus.OK)
   async sendEmailsToSubscribers() {
-    await this.queryBys.execute(new SendEmailsToSubscribers());
+    const emails = await this.queryBys.execute(new SendEmailsToSubscribers());
+
+    return {
+      message: SEND_RATE_RESPONSE_MESSAGE,
+      emails,
+    };
   }
 }

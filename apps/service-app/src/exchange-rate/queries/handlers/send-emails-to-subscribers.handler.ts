@@ -1,43 +1,22 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { PrismaService } from '@app/prisma/prisma.service';
 import { SendEmailsToSubscribers } from '..';
-// import { PrometheusService } from '@app/prometheus/prometheus.service';
-// import { ExchangeRateService } from '../../exchange-rate.service';
-import { PartialSubscriptionEmail } from '../../interfaces';
+import { ExchangeRateService } from '../../exchange-rate.service';
 
 @QueryHandler(SendEmailsToSubscribers)
 export class SendEmailsToSubscribersHandler
   implements IQueryHandler<SendEmailsToSubscribers>
 {
-  constructor(
-    private readonly prisma: PrismaService,
-    // private readonly prometheusService: PrometheusService,
-    //private readonly exchangeRateService: ExchangeRateService,
-  ) {}
+  constructor(private readonly exchangeRateService: ExchangeRateService) {}
 
-  async execute(): Promise<PartialSubscriptionEmail[]> {
-    // const currentRate = await this.exchangeRateService.getExchangeRate();
-    const subscriptions = await this.prisma.subscription.findMany({
-      where: {
-        status: 'subscribed',
-      },
-      select: { email: true },
-    });
+  async execute(): Promise<string[]> {
+    const { rate } = await this.exchangeRateService.getExchangeRate();
+    const emails = await this.exchangeRateService.getSubscribedEmails();
 
-    /* for (const subscription of subscriptions) {
-      try {
-        await this.queueService.enqueueEmail(
-          subscription.email,
-          'UAH-to-BTC exchange rate',
-          `Current rate: ${currentRate}`,
-        );
+    await this.exchangeRateService.sendExchangeRateEmailToSubscribers(
+      emails,
+      rate,
+    );
 
-        this.prometheusService.increaseSendEmailSuccessfulCounter();
-      } catch (error) {
-        this.prometheusService.increaseSendEmailErrorCounter();
-      }
-    } */
-
-    return subscriptions;
+    return emails;
   }
 }
