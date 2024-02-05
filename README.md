@@ -52,7 +52,7 @@
 
 ## Services
 
-- localhost:3001 -> Service App
+- localhost:3001 -> Service App (localhost:3001/api -> Swagger Docs)
 - localhost:3002 -> Worker App
 - localhost:9090 -> Prometheus
 - localhost:6379 -> Redis
