@@ -23,6 +23,8 @@
   - [ ] send email count
   - [ ] send email error count
   - [x] exchange rate gauge
+- [ ] Get exchange rate every hour
+- [ ] Get exchange rate at 9 AM Kyiv time
 - [x] Use CQRS pattern
 - [ ] Use Nodemailer for mailing
 - [ ] Use Bull for task queuing
