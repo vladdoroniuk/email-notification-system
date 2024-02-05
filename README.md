@@ -59,7 +59,7 @@
 - localhost:5432 -> PostgreSQL
 - localhost:5555 -> Prisma Studio (npm run db:studio)
 
-## Useful Articles
+## Useful Links
 
 - https://www.bemyaficionado.com/design-a-notification-system
 - https://blog.risingstack.com/node-js-performance-monitoring-with-prometheus/
