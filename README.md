@@ -1,7 +1,3 @@
-#### Note
-
-_This branch contains unfinished code that was completed by a given deadline. You can find a complete system on "complete-task" branch_ 👀
-
 ## Tasks
 
 - [x] Analyze business requirements and technical details
@@ -56,12 +52,12 @@ _This branch contains unfinished code that was completed by a given deadline. Yo
 
 ## Services
 
-- localhost:3001 -> Service App (localhost:3001/api -> Swagger Docs)
+- localhost:3001 -> Service App (/api -> Swagger Docs)
 - localhost:3002 -> Worker App
 - localhost:9090 -> Prometheus
 - localhost:6379 -> Redis
 - localhost:5432 -> PostgreSQL
-- localhost:5555 -> Prisma Studio (npm run db:studio)
+- localhost:5555 -> Prisma Studio (npm run db:studio, only in local dev)
 
 ## Useful Links
 
