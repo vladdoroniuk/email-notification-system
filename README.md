@@ -1,3 +1,7 @@
+#### Note
+
+_This branch contains unfinished code that was completed by a given deadline. You can find a complete system on "complete-task" branch_ 👀
+
 ## Tasks
 
 - [x] Analyze business requirements and technical details
