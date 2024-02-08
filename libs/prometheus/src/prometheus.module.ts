@@ -27,8 +27,8 @@ import { METRICS } from 'libs/utils/consts';
       help: METRICS.unsubscribeEmailCounter.help,
     }),
     makeCounterProvider({
-      name: METRICS.sendEmailSuccessfulCounter.name,
-      help: METRICS.sendEmailSuccessfulCounter.help,
+      name: METRICS.sendEmailSuccessCounter.name,
+      help: METRICS.sendEmailSuccessCounter.help,
     }),
     makeCounterProvider({
       name: METRICS.sendEmailErrorCounter.name,

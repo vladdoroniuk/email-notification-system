@@ -10,7 +10,6 @@ export const PROMETHEUS_API_URL = IS_DOCKER_CONTAINER
 export const ROUTES = {
   rate: '/rate',
   emails: '/emails',
-  metrics: '/metrics',
 };
 
 export const CURRENCIES = {
@@ -31,7 +30,7 @@ export const METRICS = {
     name: 'unsubscribe_email_count',
     help: 'Counts the number of successful email unsubscriptions',
   },
-  sendEmailSuccessfulCounter: {
+  sendEmailSuccessCounter: {
     name: 'send_email_successful_count',
     help: 'Counts the number of successfully sent emails',
   },
@@ -45,4 +44,17 @@ export const METRICS = {
   },
 };
 
-export const SCRAPE_INTERVAL_IN_MS = 10_000;
+export const SEND_RATE_RESPONSE_MESSAGE =
+  'Rate successfully sent to active subscriptions';
+
+export const SCRAPE_INTERVAL_IN_MS = 30_000;
+export const EXCHANGE_RATE_INTERVAL_IN_MS = 3_600_000;
+export const EXCHANGE_RATE_CACHE_KEY = 'rate';
+export const CRON_TIME_ZONE = 'Europe/Kyiv';
+
+export const EMAIL_QUEUE = 'email-queue';
+export const EMAIL_SEND_JOB = 'email-send';
+export const EMAIL_SUBJECT = 'Updates on UAH-to-BTC exchange rate';
+export const EMAIL_TEXT = 'Current UAH-to-BTC exchange rate';
+export const EMAIL_FROM = 'Crypto Notifier';
+export const EMAIL_TRANSPORTER = 'nodemailer';

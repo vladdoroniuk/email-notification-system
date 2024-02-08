@@ -13,7 +13,7 @@ export class CreateEmailSubscriptionHandler
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(command: CreateEmailSubscriptionCommand): Promise<void> {
+  async execute(command: CreateEmailSubscriptionCommand) {
     const { data: _data } = command;
 
     const existingSubscription = await this.prisma.subscription.findUnique({

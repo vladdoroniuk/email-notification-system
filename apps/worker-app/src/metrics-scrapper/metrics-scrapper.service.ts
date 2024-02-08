@@ -21,9 +21,12 @@ export class MetricsScrapperService {
   private async scrapeMetrics() {
     const metricsToQuery = this.getMetricNames(METRICS);
 
-    for (const metric of metricsToQuery) {
-      const prometheusMetricData = await this.createPromQuery(metric);
-      await this.insertMetric(prometheusMetricData);
+    for (const metricToQuery of metricsToQuery) {
+      const metric = await this.getMetricData(metricToQuery);
+
+      if (metric) {
+        await this.saveMetric(metric);
+      }
     }
   }
 
@@ -33,7 +36,7 @@ export class MetricsScrapperService {
     return Object.values(metricsObj).map((metric) => metric.name);
   }
 
-  private async createPromQuery(metricName: string) {
+  private async getMetricData(metricName: string) {
     const urlData: CreateNetworkRequest = {
       baseUrl: PROMETHEUS_API_URL,
       config: {
@@ -47,9 +50,7 @@ export class MetricsScrapperService {
     return data?.data?.data?.result?.[0];
   }
 
-  private async insertMetric(
-    prometheusMetric: PrometheusMetric,
-  ): Promise<void> {
+  private async saveMetric(prometheusMetric: PrometheusMetric) {
     const { metric, value } = prometheusMetric;
 
     const timestamp = new Date(value[0] * 1000);

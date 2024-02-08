@@ -10,8 +10,8 @@ export class PrometheusService {
     private readonly subscribeEmailCounter: Counter<string>,
     @InjectMetric(METRICS.unsubscribeEmailCounter.name)
     private readonly unsubscribeEmailCounter: Counter<string>,
-    @InjectMetric(METRICS.sendEmailSuccessfulCounter.name)
-    private readonly sendEmailSuccessfulCounter: Counter<string>,
+    @InjectMetric(METRICS.sendEmailSuccessCounter.name)
+    private readonly sendEmailSuccessCounter: Counter<string>,
     @InjectMetric(METRICS.sendEmailErrorCounter.name)
     private readonly sendEmailErrorCounter: Counter<string>,
     @InjectMetric(METRICS.exchangeRateGauge.name)
@@ -26,8 +26,8 @@ export class PrometheusService {
     this.unsubscribeEmailCounter.inc();
   }
 
-  increaseSendEmailSuccessfulCounter() {
-    this.sendEmailSuccessfulCounter.inc();
+  increaseSendEmailSuccessCounter() {
+    this.sendEmailSuccessCounter.inc();
   }
 
   increaseSendEmailErrorCounter() {

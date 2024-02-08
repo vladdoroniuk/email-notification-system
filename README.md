@@ -14,24 +14,24 @@ _This branch contains unfinished code that was completed by a given deadline. Yo
 - [x] Create docker-compose.yml file
 - [x] Connect to external BTC-to-UAH API
 - [x] Configure Prometheus and prom-client
-- [ ] Create endpoints
+- [x] Create endpoints
   - [x] GET /rate
-  - [ ] POST /rate
+  - [x] POST /rate
   - [x] GET /emails
   - [x] POST /emails
   - [x] DELETE /emails
   - [x] GET /metrics
-- [ ] Collect metrics
+- [x] Collect metrics
   - [x] subscribe email count
   - [x] unsubscribe email count
-  - [ ] send email count
-  - [ ] send email error count
+  - [x] send email (success) count
+  - [x] send email error count
   - [x] exchange rate gauge
-- [ ] Get exchange rate every hour
-- [ ] Get exchange rate at 9 AM Kyiv time
+- [x] Get exchange rate every hour
+- [x] Get exchange rate at 9 AM Kyiv time
 - [x] Use CQRS pattern
-- [ ] Use Nodemailer for mailing
-- [ ] Use Bull for task queuing
+- [x] Use Nodemailer for mailing
+- [x] Use Bull for task queuing
 - [x] Use Cron/Interval for task scheduling
 - [ ] Use Pino for logging
 - [ ] Add unit tests
@@ -67,3 +67,4 @@ _This branch contains unfinished code that was completed by a given deadline. Yo
 
 - https://www.bemyaficionado.com/design-a-notification-system
 - https://blog.risingstack.com/node-js-performance-monitoring-with-prometheus/
+- https://mailtrap.io/ (email delivery testing)
