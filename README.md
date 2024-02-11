@@ -20,7 +20,7 @@
 - [x] Collect metrics
   - [x] subscribe email count
   - [x] unsubscribe email count
-  - [x] send email (success) count
+  - [x] send email success count
   - [x] send email error count
   - [x] exchange rate gauge
 - [x] Get exchange rate every hour
