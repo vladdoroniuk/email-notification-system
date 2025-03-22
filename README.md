@@ -1,7 +1,32 @@
-## Tasks
+## System Design Diagram
 
-- [x] Analyze business requirements and technical details
-- [x] Clarify questions with the customer
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)">
+    <img src="./images/system_design.svg">
+  </picture>
+</p>
+
+## Entity Relationship Diagram
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)">
+    <img src="./images/erd.svg">
+  </picture>
+</p>
+
+## Services
+
+- localhost:3001 -> Service App (/api -> Swagger Docs)
+- localhost:3002 -> Worker App
+- localhost:9090 -> Prometheus
+- localhost:6379 -> Redis
+- localhost:5432 -> PostgreSQL
+- localhost:5555 -> Prisma Studio (npm run db:studio, only in local dev)
+
+## Todo
+
 - [x] Create system design diagram
 - [x] Create entity relationship diagram
 - [x] Setup NestJS monorepo
@@ -31,33 +56,6 @@
 - [x] Use Cron/Interval for task scheduling
 - [ ] Use Pino for logging
 - [ ] Add unit tests
-
-## System Design Diagram
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)">
-    <img src="./images/system_design.svg">
-  </picture>
-</p>
-
-## Entity Relationship Diagram
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)">
-    <img src="./images/erd.svg">
-  </picture>
-</p>
-
-## Services
-
-- localhost:3001 -> Service App (/api -> Swagger Docs)
-- localhost:3002 -> Worker App
-- localhost:9090 -> Prometheus
-- localhost:6379 -> Redis
-- localhost:5432 -> PostgreSQL
-- localhost:5555 -> Prisma Studio (npm run db:studio, only in local dev)
 
 ## Links
 
